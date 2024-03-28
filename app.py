@@ -10,9 +10,12 @@ def index():
 
 @app.route('/add', methods=['POST'])
 def add_task():
+    #TODO validate input
     content = request.form['content']
     tasks[len(tasks) + 1] = content
+    #TODO Return proper notification
     return redirect(url_for('index'))
+
 
 @app.route('/delete/<int:task_id>')
 def delete_task(task_id):
